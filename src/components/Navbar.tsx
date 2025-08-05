@@ -2,22 +2,21 @@
 
 import { Bell, User, Leaf } from 'lucide-react';
 import Link from 'next/link';
+import { navLinks } from '@/lib/links';
+import { aboutCompany } from '@/lib/about';
+
 
 export default function Navbar() {
-  const navLinks = [
-    { name: 'Dashboard', href: '/' },
-    { name: 'AI Features', href: '/features' },
-    { name: 'Analytics', href: '/analytics' },
-    { name: 'Solutions', href: '/solutions' },
-  ];
-
+  const company = aboutCompany[0]; 
   return (
     <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-green-900/80 text-white">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <Leaf className="text-green-400 w-6 h-6" />
-          <span className="text-xl font-bold">TerrAlytics</span>
+        <div >
+          <Link href="/" className='flex items-center gap-2 text-white hover:text-green-300 transition'>
+            <Leaf className="text-green-400 w-6 h-6 cursor-pointer hover:text-green-300 transition" />
+            <span className="text-xl font-bold">{company.name}</span>
+          </Link>
         </div>
 
         {/* Menu */}
