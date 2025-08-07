@@ -11,7 +11,7 @@ export default function Navbar() {
   const company = aboutCompany[0];
   const color = colorTheme[0]; 
   return (
-    <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-green-900/80 text-white">
+    <header className={`fixed top-0 w-full z-50 backdrop-blur-md bg-${color.navColor} text-white`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div >
