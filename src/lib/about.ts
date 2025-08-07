@@ -1,16 +1,23 @@
+const year = new Date().getFullYear();
+
+export type SocialMediaName = 'Facebook' | 'Twitter' | 'Instagram' | 'Youtube' | 'X';
+
 export const aboutCompany = [
-    {   
-        name: 'TerrAlytics', 
-        subtitle : 'Terralytics adalah platform berbasis AI yang membantu menganalisis dan melestarikan hutan Indonesia.',
-        email : 'hello@terralytics.test',
-        socialLinks: [
-            { name: 'X', href: '#' },
-            { name: 'LinkedIn', href: '#' },
-            { name: 'Instagram', href: '#' },
-            { name: 'Facebook', href: '#' }
-        ]
-    }
+  {   
+    name: 'TerrAlytics', 
+    subtitle : 'Terralytics adalah platform berbasis AI yang membantu menganalisis dan melestarikan hutan Indonesia.',
+    email : 'hello@terralytics.test',
+    socialLinks: [
+      { name: 'X', href: '#' },
+      { name: 'Instagram', href: '#' },
+      { name: 'Facebook', href: '#' },
+      { name: 'Youtube', href: '#' },
+    ] as { name: SocialMediaName; href: string }[],
+    year,
+    logo:"/img/logo.png",
+  }
 ];
+
     
 
 // Cara make: import { aboutCompany } from '@/lib/about' di modul 
