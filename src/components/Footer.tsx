@@ -110,7 +110,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-green-800 mt-8 pt-6 text-sm flex flex-col md:flex-row justify-between text-gray-400">
-          <p>&copy; {company.year} TerrAlytics. All rights reserved. CORISINDO 2025 Web Design Competition.</p>
+          <p>&copy; {company.year} <a href="https://utpas.ac.id" className={`text-purple-500`}>utpas.ac.id</a> All rights reserved. CORISINDO 2025 Web Design Competition.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a className={`${color.textHover}`} href="#">Privacy Policy</a>
             <a className={`${color.textHover}`} href="#">Terms & Conditions</a>
