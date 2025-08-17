@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { colorTheme } from "@/lib/coloring";
 import CropAnalysis from "../CropAnalysis";
+import Weather from "../weather/Weather";
 
 export default function NavigasiMenu() {
     const color = colorTheme[0];
@@ -49,7 +50,7 @@ export default function NavigasiMenu() {
             {/* Render Section */}
             <div className="">
                 {activeTab === "crop" && <CropAnalysis />}
-                {activeTab === "weather" && <div>Weather Component Here</div>}
+                {activeTab === "weather" && <Weather />}
                 {activeTab === "yield" && <div>Yield Optimization Component Here</div>}
                 {activeTab === "irrigation" && <div>Smart Irrigation Component Here</div>}
             </div>

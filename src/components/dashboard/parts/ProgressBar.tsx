@@ -1,4 +1,3 @@
-// components/dashboard/parts/ProgressBar.tsx
 "use client";
 
 type Props = { percent: number };

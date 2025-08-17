@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TriangleAlert } from "lucide-react";
 
 type Marker = {
   id: string;
@@ -77,7 +78,7 @@ export default function HeatmapCard() {
               className={`h-6 w-6 rounded-full ring-2 ring-white/60 flex items-center justify-center`}
               style={{
                 backgroundColor:
-                  m.color === "red" ? "#E11D48" : m.color === "yellow" ? "#F59E0B" : "#ffffff",
+                  m.color === "red" ? "#E11D48" : m.color === "yellow" ? "#F59E0B" : "green",
               }}
             >
               <span className="text-xs font-bold text-black">{m.label}</span>

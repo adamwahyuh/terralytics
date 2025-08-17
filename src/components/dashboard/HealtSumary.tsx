@@ -1,4 +1,3 @@
-// components/dashboard/HealthSummary.tsx
 "use client";
 
 type Props = {

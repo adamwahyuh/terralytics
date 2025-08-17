@@ -1,4 +1,5 @@
 "use client";
+import { TriangleAlert, Check } from "lucide-react";
 
 function Donut({ percent = 75 }: { percent?: number }) {
   const radius = 70; 
@@ -101,7 +102,7 @@ export default function HealthDistributionCard() {
         <div className="flex items-center justify-between rounded-full bg-black/20 px-4 py-3">
           <div className="flex items-center gap-3 justify-center">
             <span className=" flex items-center justify-center h-8 w-8 rounded-full bg-yellow-400/20 text-yellow-300">
-              ✓
+              <Check />
             </span>
             <div>
               <div className="text-sm font-semibold">Healthy Areas</div>
@@ -115,7 +116,7 @@ export default function HealthDistributionCard() {
         <div className="flex items-center justify-between rounded-full bg-black/20 px-4 py-3">
           <div className="flex items-center gap-3">
             <span className=" flex items-center justify-center h-8 w-8 rounded-full bg-yellow-400/20 text-yellow-300">
-              !
+              <TriangleAlert />
             </span>
             <div>
               <div className="text-sm font-semibold">Areas with Issues</div>
@@ -129,7 +130,7 @@ export default function HealthDistributionCard() {
         <div className="flex items-center justify-between rounded-full bg-black/20 px-4 py-3">
           <div className="flex items-center gap-3">
             <span className=" flex items-center justify-center h-8 w-8 rounded-full bg-yellow-400/20 text-yellow-300">
-              !
+              <TriangleAlert />
             </span>
             <div>
               <div className="text-sm font-semibold">Critical Areas</div>

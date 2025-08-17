@@ -1,4 +1,3 @@
-// app/page.tsx
 import { ShieldCheck, Network } from "lucide-react";
 import StatusChip from "@/components/dashboard/StatusChip";
 import MetricCard from "@/components/dashboard/MetricCard";

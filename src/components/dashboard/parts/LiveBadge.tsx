@@ -1,4 +1,3 @@
-// components/dashboard/parts/LiveBadge.tsx
 "use client";
 
 export default function LiveBadge() {

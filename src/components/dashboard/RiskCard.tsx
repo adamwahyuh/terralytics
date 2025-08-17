@@ -1,4 +1,3 @@
-// components/dashboard/RiskCard.tsx
 "use client";
 
 import { CheckCircle2, TriangleAlert, Wheat } from "lucide-react";
