@@ -4,10 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-// import { useEffect } from "react";
-// import AOS from "aos";
-import "aos/dist/aos.css";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
