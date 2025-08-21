@@ -3,8 +3,9 @@ import StatusChip from "@/components/dashboard/StatusChip";
 import MetricCard from "@/components/dashboard/MetricCard";
 import HealthSummary from "@/components/dashboard/HealtSumary";
 import RiskCard from "@/components/dashboard/RiskCard";
-
+import { colorTheme } from "@/lib/coloring";
 export default function FirstSection() {
+  const color = colorTheme[0];
   return (
     <main className="relative w-full text-white overflow-hidden min-h-screen">
       {/* Background layer */}

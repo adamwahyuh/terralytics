@@ -1,61 +1,50 @@
-'use client'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-
-// Data suhu harian
-const data = [
-  { day: "Tue", temp: 26 },
-  { day: "Wed", temp: 24 },
-  { day: "Thu", temp: 22 },
-  { day: "Fri", temp: 29 },
-  { day: "Sat", temp: 27 },
-  { day: "Sun", temp: 20 },
-  { day: "Mon", temp: 25 },
-]
+"use client";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
 
 export default function WeatherForecast() {
+  const data = [
+    { day: "Sen", temp: 29 },
+    { day: "Sel", temp: 30 },
+    { day: "Rab", temp: 28 },
+    { day: "Kam", temp: 27 },
+    { day: "Jum", temp: 31 },
+    { day: "Sab", temp: 32 },
+    { day: "Min", temp: 30 },
+  ];
+
   return (
-    <div className="px-12 pb-8 pt-4 w-full">
-      <ResponsiveContainer width="100%" height={120}>
-        <LineChart
-          data={data}
-          margin={{ top: 16, right: 16, left: 0, bottom: 8 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#223046" />
-          <XAxis 
-            dataKey="day"
-            tick={{ fill: '#adadad', fontSize: 14, fontWeight: 500 }}
-            axisLine={false}
-            tickLine={false}
-          />
-          <YAxis 
-            dataKey="temp"
-            axisLine={false}
-            tickLine={false}
-            tick={{ fill: '#ddd', fontSize: 14, fontWeight: 600 }}
-            domain={['dataMin-2', 'dataMax+2']}
-            width={30}
-          />
+    <div className="bg-black/50 rounded-2xl shadow-lg p-20 h-[50vh]">
+      <h2 className="text-lg font-semibold mb-4 text-white">7-Day Forecast</h2>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+          <XAxis dataKey="day" stroke="#fff" />
+          <YAxis stroke="#fff" />
           <Tooltip
-            contentStyle={{ background: '#232f3e', borderRadius: 12, border: 'none' }}
-            labelStyle={{ color: '#fff', fontWeight: 600 }}
-            itemStyle={{ color: '#fff' }}
-            cursor={{ stroke: '#6ee7b7', strokeWidth: 1 }}
+            contentStyle={{
+              backgroundColor: "#1f2937",
+              borderRadius: "0.5rem",
+              border: "none",
+            }}
+            labelStyle={{ color: "#fff" }}
           />
-          <Line 
-            type="monotone" 
-            dataKey="temp" 
-            stroke="#6ee7b7" 
+          <Line
+            type="monotone"
+            dataKey="temp"
+            stroke="#60a5fa"
             strokeWidth={3}
-            dot={{ r: 5, fill: '#fff' }}
-            activeDot={{ r: 8, fill: '#6ee7b7', stroke: '#fff', strokeWidth: 2 }}
+            dot={{ fill: "#60a5fa", r: 5 }}
           />
         </LineChart>
       </ResponsiveContainer>
-      <div className="flex justify-between px-2 mt-2">
-        {data.map((item) => (
-          <span key={item.day} className="text-[#adadad] text-sm font-medium">{item.temp}°</span>
-        ))}
-      </div>
     </div>
-  )
+  );
 }

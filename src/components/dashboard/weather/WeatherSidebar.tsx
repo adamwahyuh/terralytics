@@ -1,50 +1,60 @@
+"use client";
+import { Droplets, Wind } from "lucide-react";
+
 export default function WeatherSidebar() {
   return (
-    <div className="w-72 bg-black bg-opacity-70 rounded-2xl m-4 p-6 flex flex-col text-white shadow xl:min-h-[90vh]">
+    <div className="bg-[#111]/50 rounded-2xl shadow-lg p-6 w-full md:w-1/4 flex flex-col gap-6">
       <div>
-        <span className="text-lg font-bold">Weather Conditions</span>
-        <div className="text-5xl font-bold mt-4">72%</div>
-        <div className="text-sm text-gray-300 mb-2">Farming Optimal</div>
-        <div className="bg-green-600 w-fit px-3 py-1 rounded-full text-xs font-semibold mb-8">Ideal Conditions</div>
-      </div>
-      <div className="space-y-6">
-        <WeatherSidebarStat name="Temperature" value="26°C" status="Optimal" percent={78} color="green" />
-        <WeatherSidebarStat name="Humidity" value="65%" status="Good" percent={65} color="blue" />
-        <WeatherSidebarStat name="Wind Speed" value="12 km/h" status="Moderate" percent={60} color="yellow" />
-      </div>
-    </div>
-  )
-}
-
-type StatProps = {
-  name: string
-  value: string
-  status: string
-  percent: number
-  color: 'green' | 'blue' | 'yellow'
-}
-
-function WeatherSidebarStat({ name, value, status, percent, color }: StatProps) {
-  const barColor = {
-    green: 'bg-green-500',
-    blue: 'bg-blue-400',
-    yellow: 'bg-yellow-300',
-  }[color]
-  return (
-    <div>
-      <div className="flex justify-between items-center">
-        <span className="text-sm">{name}</span>
-        <span className={`px-2 py-0.5 rounded-full text-xs font-medium capitalize ${barColor} text-black ml-2`}>
-          {status}
+        <h2 className="text-lg font-semibold">Weather Conditions</h2>
+        <p className="text-5xl font-bold mt-2">72%</p>
+        <p className="text-sm text-gray-400">Farming Optimal</p>
+        <div className="w-full bg-gray-700 h-2 rounded-full mt-2">
+          <div className="bg-green-500 h-2 rounded-full w-[72%]" />
+        </div>
+        <span className="mt-3 inline-block px-3 py-1 bg-green-600 text-xs rounded-full">
+          Ideal Conditions
         </span>
       </div>
-      <div className="flex items-center justify-between mt-1">
-        <span className="text-xl font-semibold">{value}</span>
-        <span className="text-xs text-gray-400">{percent}%</span>
+
+      {/* Temperature */}
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">🌡️ <span>Temperature</span></div>
+        <span className="text-green-400 text-sm">Optimal</span>
       </div>
-      <div className="w-full h-2 bg-gray-700 rounded-full my-1">
-        <div className={`${barColor} h-2 rounded-full`} style={{ width: `${percent}%` }}></div>
+      <div>
+        <p className="text-xl">26°C</p>
+        <div className="w-full bg-gray-700 h-2 rounded-full mt-1">
+          <div className="bg-green-500 h-2 rounded-full w-[78%]" />
+        </div>
+      </div>
+
+      {/* Humidity */}
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <Droplets className="w-4 h-4" /> <span>Humidity</span>
+        </div>
+        <span className="text-blue-400 text-sm">Good</span>
+      </div>
+      <div>
+        <p className="text-xl">65%</p>
+        <div className="w-full bg-gray-700 h-2 rounded-full mt-1">
+          <div className="bg-blue-500 h-2 rounded-full w-[65%]" />
+        </div>
+      </div>
+
+      {/* Wind Speed */}
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <Wind className="w-4 h-4" /> <span>Wind Speed</span>
+        </div>
+        <span className="text-yellow-400 text-sm">Moderate</span>
+      </div>
+      <div>
+        <p className="text-xl">12 km/h</p>
+        <div className="w-full bg-gray-700 h-2 rounded-full mt-1">
+          <div className="bg-yellow-500 h-2 rounded-full w-[60%]" />
+        </div>
       </div>
     </div>
-  )
+  );
 }

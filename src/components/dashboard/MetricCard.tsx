@@ -10,6 +10,7 @@ import {
 import LiveBadge from "./parts/LiveBadge";
 import ProgressBar from "./parts/ProgressBar";
 import React from "react";
+import { colorTheme } from "@/lib/coloring";
 
 type IconKey = "sprout" | "droplet" | "thermo" | "humidity" | "activity";
 
@@ -41,9 +42,9 @@ export default function MetricCard({
   live,
 }: Props) {
   const percent = Math.max(0, Math.min(100, (value / max) * 100));
-
+  const color = colorTheme[0];
   return (
-    <article className="relative rounded-2xl bg-gradient-to-br from-emerald-800/60 to-emerald-900/60 p-4 shadow-xl ring-1 ring-white/10 backdrop-blur">
+    <article className={`${color.hoverAnimationScale + color.cursorPointer} relative rounded-2xl bg-gradient-to-br from-emerald-800/60 to-emerald-900/60 p-4 shadow-xl ring-1 ring-white/10 backdrop-blur`}>
       {/* top row */}
       <div className="mb-3 flex items-center justify-between">
         <div className="inline-flex items-center gap-2 rounded-md bg-emerald-900/60 px-2 py-1 ring-1 ring-white/10">

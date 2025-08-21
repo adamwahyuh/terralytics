@@ -1,34 +1,30 @@
-import WeatherSidebar from './WeatherSidebar'
-import WeatherMain from './WeatherMain'
-import WeatherForecast from './WeatherForecast'
+"use client";
+import WeatherSidebar from "./WeatherSidebar";
+import WeatherMain from "./WeatherMain";
+import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather() {
   return (
-    <div className="flex h-screen w-screen bg-gradient-to-b from-blue-900 to-[#3e3e3e] relative">
-      <div className="flex flex-col md:flex-row w-full">
-        {/* Sidebar */}
-        <div className="bg-amber-600 w-full md:w-1/4 h-24 md:h-auto">
-        </div>
+    <div className="relative flex flex-col md:flex-row min-h-screen w-screen text-white p-4 gap-4 pb-20">
+      {/* Background + Overlay */}
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/FWeather.png')" }}
+      />
+      <div className="absolute inset-0 -z-10 bg-[#042012]/70 backdrop-blur-sm" />
 
-        <div className="flex flex-col flex-1">
-          {/* Atas */}
-          <div className="flex flex-col md:flex-row flex-1">
-            <div className="bg-indigo-600 flex-1">
-            </div>
-            <div className="flex flex-col flex-1">
-              <div className="bg-green-300 flex-1">
-              </div>
-              <div className="bg-green-800 flex-1"></div>
-              <div className="bg-green-900 flex-1"></div>
-            </div>
-          </div>
+      {/* Sidebar */}
+      <WeatherSidebar />
 
-          {/* Bawah */}
-          <div className="bg-amber-700 h-24 md:h-1/3 ">
-            Halo
-          </div>
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
+          <WeatherMain />
+          <WeatherInfo />
         </div>
+        <WeatherForecast />
       </div>
     </div>
-  )
+  );
 }
