@@ -4,56 +4,55 @@ import { useState } from "react";
 import { colorTheme } from "@/lib/coloring";
 import CropAnalysis from "../CropAnalysis";
 import Weather from "../weather/Weather";
+import clsx from "clsx"; 
 
 export default function NavigasiMenu() {
-    const color = colorTheme[0];
-    const [activeTab, setActiveTab] = useState("crop"); 
+  const color = colorTheme[0];
+  const [activeTab, setActiveTab] = useState("crop");
 
-    return (
-        <div className="w-full text-white">
-            {/* Navigation Tabs */}
-            <div className={`flex justify-center gap-4 backdrop-blur-3xl px-6 py-3 bg-${color.primaryColor} `}>
-                <button
-                    className={`px-4 py-2 rounded-md transition-all duration-300  cursor-pointer ${
-                        activeTab === "crop" ? `${color.gradientGreenYellow} + text-black` : "hover:bg-black/20"
-                    }`}
-                    onClick={() => setActiveTab("crop")}
-                >
-                    Crop Analysis
-                </button>
-                <button
-                    className={`px-4 py-2 rounded-md transition-all duration-300  cursor-pointer ${
-                        activeTab === "weather" ? `${color.gradientGreenYellow} + text-black` : "hover:bg-black/20"
-                    }`}
-                    onClick={() => setActiveTab("weather")}
-                >
-                    Weather
-                </button>
-                <button
-                    className={`px-4 py-2 rounded-md transition-all  duration-300 cursor-pointer ${
-                        activeTab === "yield" ? `${color.gradientGreenYellow} + text-black` : "hover:bg-black/20"
-                    }`}
-                    onClick={() => setActiveTab("yield")}
-                >
-                    Yield Optimization
-                </button>
-                <button
-                    className={`px-4 py-2 rounded-md transition-all duration-300  cursor-pointer ${
-                        activeTab === "irrigation" ? `${color.gradientGreenYellow}` : "hover:bg-black/20"
-                    }`}
-                    onClick={() => setActiveTab("irrigation")}
-                >
-                    Smart Irrigation
-                </button>
-            </div>
+  const tabs = [
+    { key: "crop", label: "Crop Analysis" },
+    { key: "weather", label: "Weather" },
+    { key: "yield", label: "Yield Optimization" },
+    { key: "irrigation", label: "Smart Irrigation" },
+  ];
 
-            {/* Render Section */}
-            <div className="">
-                {activeTab === "crop" && <CropAnalysis />}
-                {activeTab === "weather" && <Weather />}
-                {activeTab === "yield" && <div>Yield Optimization Component Here</div>}
-                {activeTab === "irrigation" && <div>Smart Irrigation Component Here</div>}
-            </div>
-        </div>
-    );
+  return (
+    <div className="w-full text-white">
+      {/* Navigation Tabs */}
+      <div
+        className={clsx(
+          "flex gap-3 sm:gap-4 px-3 sm:px-6 py-2 sm:py-3 backdrop-blur-3xl",
+          `bg-${color.primaryColor}`,
+          "overflow-x-auto scrollbar-hide" 
+        )}
+      >
+        {tabs.map((tab) => (
+          <button
+            key={tab.key}
+            className={clsx(
+              "flex-shrink-0 px-3 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-300",
+              "cursor-pointer",
+              activeTab === tab.key
+                ? `${color.gradientGreenYellow} text-black`
+                : "hover:bg-black/20"
+            )}
+            onClick={() => setActiveTab(tab.key)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Render Section */}
+      <div className="">
+        {activeTab === "crop" && <CropAnalysis />}
+        {activeTab === "weather" && <Weather />}
+        {activeTab === "yield" && <div>????</div>}
+        {activeTab === "irrigation" && (
+          <div>???</div>
+        )}
+      </div>
+    </div>
+  );
 }

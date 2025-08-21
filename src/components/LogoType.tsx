@@ -19,7 +19,7 @@ export default function LogoType() {
   }, []);
 
   return (
-    <h1 className="text-9xl font-bold">
+    <h1 className="text-6xl md:text-9xl font-bold">
       <span className="text-green-600">{displayText.slice(0, 4)}</span>
       {displayText.slice(4)}
     </h1>
