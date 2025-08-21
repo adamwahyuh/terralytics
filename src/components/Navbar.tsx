@@ -26,9 +26,8 @@ export default function Navbar() {
           href="/"
           className={`flex items-center gap-2 text-white ${color.textHover} transition`}
         >
-          <Img
-            width={24}
-            height={24}
+          <img
+          
             src={company.logo}
             alt="Logo"
             className="w-6 h-6 cursor-pointer transition"
