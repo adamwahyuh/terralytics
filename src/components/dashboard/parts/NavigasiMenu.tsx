@@ -4,6 +4,8 @@ import { useState } from "react";
 import { colorTheme } from "@/lib/coloring";
 import CropAnalysis from "../CropAnalysis";
 import Weather from "../weather/Weather";
+import YieldDashboard from "../yield/Yield";
+import SmartIrrigation from "../smart/SmartIrrigation";
 import clsx from "clsx"; 
 
 export default function NavigasiMenu() {
@@ -48,10 +50,8 @@ export default function NavigasiMenu() {
       <div className="">
         {activeTab === "crop" && <CropAnalysis />}
         {activeTab === "weather" && <Weather />}
-        {activeTab === "yield" && <div>????</div>}
-        {activeTab === "irrigation" && (
-          <div>???</div>
-        )}
+        {activeTab === "yield" && <YieldDashboard />}
+        {activeTab === "irrigation" && <SmartIrrigation />}
       </div>
     </div>
   );

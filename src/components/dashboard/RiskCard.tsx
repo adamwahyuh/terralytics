@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckCircle2, TriangleAlert, Wheat } from "lucide-react";
-
+import { colorTheme } from "@/lib/coloring";
 type Props = {
   tone: "good" | "warn" | "bad";
   title: string;
@@ -30,10 +30,11 @@ export default function RiskCard({
   subtitleTop,
   subtitleBottom,
 }: Props) {
+  const color = colorTheme[0];
   const Icon = Icons[tone];
   return (
     <div
-      className={`rounded-2xl bg-gradient-to-br p-6 shadow-xl ring-1 backdrop-blur ${toneStyles[tone]}`}
+      className={`${color.hoverAnimationScale + color.cursorPointer} rounded-2xl bg-gradient-to-br p-6 shadow-xl ring-1 backdrop-blur ${toneStyles[tone]}`}
     >
       <div className="mb-3 flex items-center gap-3">
         <span className="grid h-9 w-9 place-items-center rounded-lg bg-black/20 ring-1 ring-white/10">
