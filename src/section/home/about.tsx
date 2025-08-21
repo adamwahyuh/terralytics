@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 
 import LogoType from "@/components/LogoType";
 
-import StepIndicator from "@/components/step/StepIndicator";
 import { colorTheme } from "@/lib/coloring";
 import { Play } from "lucide-react";
 

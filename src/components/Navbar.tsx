@@ -2,6 +2,7 @@
 
 import { Bell, User, Menu, X } from "lucide-react";
 import Link from "next/link";
+import Img from "next/image"
 import { navLinks } from "@/lib/links";
 import { aboutCompany } from "@/lib/about";
 import { colorTheme } from "@/lib/coloring";
@@ -25,7 +26,9 @@ export default function Navbar() {
           href="/"
           className={`flex items-center gap-2 text-white ${color.textHover} transition`}
         >
-          <img
+          <Img
+            width={24}
+            height={24}
             src={company.logo}
             alt="Logo"
             className="w-6 h-6 cursor-pointer transition"
