@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import {
   Facebook,
   Twitter,
@@ -50,9 +51,9 @@ export default function Footer() {
               {company.socialLinks.map(({ name, href }) => {
                 const Icon = iconMap[name] || null
                 return Icon ? (
-                  <a key={name} href={href} target="_blank" rel="noopener noreferrer">
+                  <Link key={name} href={href} target="_blank" rel="noopener noreferrer">
                     <Icon className={`w-6 h-6 text-gray-200 ${color.textHover} cursor-pointer transition`} />
-                  </a>
+                  </Link>
                 ) : null
               })}
             </div>
@@ -63,28 +64,24 @@ export default function Footer() {
             <div className="mb-6 md:mb-0">
               <h3 className="font-bold mb-2">Products</h3>
               <ul className="space-y-1 text-gray-300">
-                <li><a className={`${color.textHover}`} href="#">AI Dashboard</a></li>
-                <li><a className={`${color.textHover}`} href="#">Harvest Prediction</a></li>
-                <li><a className={`${color.textHover}`} href="#">AI Consultation</a></li>
-                <li><a className={`${color.textHover}`} href="#">Weather Prediction</a></li>
+                <li><Link className={`${color.textHover}`} href="/dashboard">AI Dashboard</Link></li>
+                <li><Link className={`${color.textHover}`} href="#">Harvest Prediction</Link></li>
+                <li><Link className={`${color.textHover}`} href="#">AI Consultation</Link></li>
+                <li><Link className={`${color.textHover}`} href="/dashboard">Weather Prediction</Link></li>
               </ul>
             </div>
             <div className="mb-6 md:mb-0">
-              <h3 className="font-bold mb-2">Company</h3>
+              <h3 className="font-bold mb-2">Groups</h3>
               <ul className="space-y-1 text-gray-300">
-                <li><a className={`${color.textHover}`} href="#">About Us</a></li>
-                <li><a className={`${color.textHover}`} href="#">Team</a></li>
-                <li><a className={`${color.textHover}`} href="#">Careers</a></li>
-                <li><a className={`${color.textHover}`} href="#">Blog</a></li>
+                <li><Link className={`${color.textHover}`} href="#">About Us</Link></li>
+                <li><Link className={`${color.textHover}`} href="#">Team</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold mb-2">Support</h3>
               <ul className="space-y-1 text-gray-300">
-                <li><a className={`${color.textHover}`} href="#">Help</a></li>
-                <li><a className={`${color.textHover}`} href="#">Documentation</a></li>
-                <li><a className={`${color.textHover}`} href="#">Contact</a></li>
-                <li><a className={`${color.textHover}`} href="#">FAQ</a></li>
+                <li><Link className={`${color.textHover}`} href="">Contact</Link></li>
+                <li><Link className={`${color.textHover}`} href="/faq">FAQ</Link></li>
               </ul>
             </div>
           </div>
@@ -100,9 +97,9 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Your Email"
-              className="px-4 py-2 rounded-l-full text-sm w-full md:w-64 outline-none text-black bg-white/50"
+              className={`px-4 py-2 rounded-l-full text-sm w-full md:w-64 outline-none text-black bg-white/50`}
             />
-            <button className="bg-lime-400 text-green-950 px-6 py-2 rounded-r-full font-medium hover:bg-lime-300 transition">
+            <button className={` ${color.gradientGreenYellow} text-green-950 px-6 py-2 rounded-r-full font-medium hover:bg-green-300 transition`}>
               Subscribe
             </button>
           </div>
@@ -110,11 +107,17 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-green-800 mt-8 pt-6 text-sm flex flex-col md:flex-row justify-between text-gray-400">
-          <p>&copy; {company.year} <a href="https://utpas.ac.id" className={`text-purple-500`}>utpas.ac.id</a> All rights reserved. CORISINDO 2025 Web Design Competition.</p>
+          <p>
+            &copy; {company.year}{' '}
+            <Link href="https://utpas.ac.id" className="text-purple-500" target="_blank">
+              utpas.ac.id
+            </Link>{' '}
+            All rights reserved. CORISINDO 2025 Web Design Competition.
+          </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a className={`${color.textHover}`} href="#">Privacy Policy</a>
-            <a className={`${color.textHover}`} href="#">Terms & Conditions</a>
-            <a className={`${color.textHover}`} href="#">Cookie Policy</a>
+            <Link className={`${color.textHover}`} href="#">Privacy Policy</Link>
+            <Link className={`${color.textHover}`} href="#">Terms & Conditions</Link>
+            <Link className={`${color.textHover}`} href="#">Cookie Policy</Link>
           </div>
         </div>
       </div>
