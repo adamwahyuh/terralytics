@@ -44,7 +44,7 @@ export default function MetricCard({
   const percent = Math.max(0, Math.min(100, (value / max) * 100));
   const color = colorTheme[0];
   return (
-    <article className={`${color.hoverAnimationScale + color.cursorPointer} relative rounded-2xl bg-gradient-to-br from-emerald-800/60 to-emerald-900/60 p-4 shadow-xl ring-1 ring-white/10 backdrop-blur`}>
+    <article className={`${ color.cursorPointer} relative rounded-2xl bg-gradient-to-br from-emerald-800/60 to-emerald-900/60 p-4 shadow-xl ring-1 ring-white/10 backdrop-blur hover:ring-3 hover:ring-white/100 duration-300 `}>
       {/* top row */}
       <div className="mb-3 flex items-center justify-between">
         <div className="inline-flex items-center gap-2 rounded-md bg-emerald-900/60 px-2 py-1 ring-1 ring-white/10">

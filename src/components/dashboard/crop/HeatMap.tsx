@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { colorTheme } from "@/lib/coloring";
 
 type Marker = {
   id: string;
@@ -20,14 +20,15 @@ const DEFAULT_MARKERS: Marker[] = [
 ];
 
 export default function HeatmapCard() {
+  const ct = colorTheme[0];
   const [markers] = useState(DEFAULT_MARKERS);
 
   return (
-    <div className="rounded-2xl bg-[rgba(8,26,18,0.55)]/70 ring-1 ring-white/6 backdrop-blur-md p-4 shadow-xl h-[560px]">
+    <div className={`${ct.hoverRingWhite} rounded-2xl bg-[rgba(8,26,18,0.55)]/70 ring-1 ring-white/6 backdrop-blur-md p-4 shadow-xl h-[560px]`}>
       {/* small top label */}
       <div className="flex justify-end mb-2">
         <div className="text-xs bg-black/40 px-3 py-1 rounded-full text-emerald-100">
-          Field View: 28 Hectares
+          Lahan : 28 Hektar
         </div>
       </div>
 
@@ -51,18 +52,18 @@ export default function HeatmapCard() {
         />
 
         <div className="absolute left-4 bottom-4 bg-black/60 rounded-md p-3 text-sm text-emerald-100/90">
-          <div className="font-semibold mb-1">Field Health</div>
+          <div className="font-semibold mb-1">Kesehatan Lahan</div>
           <div className="flex items-center gap-2 text-xs">
             <span className="inline-block h-3 w-3 rounded-full bg-emerald-400" />
-            Excellent (80%+)
+            Sempurna (80%+)
           </div>
           <div className="flex items-center gap-2 text-xs mt-1">
             <span className="inline-block h-3 w-3 rounded-full bg-yellow-400" />
-            Fair (60-79%)
+            Sepadan (60-79%)
           </div>
           <div className="flex items-center gap-2 text-xs mt-1">
             <span className="inline-block h-3 w-3 rounded-full bg-red-500" />
-            Poor (&lt;60%)
+            Buruk (&lt;60%)
           </div>
         </div>
 

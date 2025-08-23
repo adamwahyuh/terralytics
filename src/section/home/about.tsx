@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 
 import LogoType from "@/components/LogoType";
 
@@ -29,12 +30,12 @@ export default function AboutSection() {
           >
             <span>98% Accuracy in Crop Prediction</span>
           </button>
-          <button
-            className={`${color.gradientGreenYellow} ${color.cursorPointer} text-white px-6 py-2 rounded-full hover:opacity-90 transition flex gap-2 items-center`}
+          <Link href="/dashboard"
+            className={`${color.gradientGreenYellow + color.hoverRingWhite} ${color.cursorPointer} text-white px-6 py-2 rounded-full hover:opacity-90 transition flex gap-2 items-center`}
           >
             <Play />
             Start AI Analysis
-          </button>
+          </Link>
         </div>
       </div>
 

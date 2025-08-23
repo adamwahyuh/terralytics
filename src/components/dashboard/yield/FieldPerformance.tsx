@@ -25,16 +25,16 @@ const priorityColor: Record<PriorityLevel, string> = {
 export default function FieldPerformance() {
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-4">Field Performance</h2>
+      <h2 className="text-lg font-semibold mb-4">Performa Lahan</h2>
       <div className="grid md:grid-cols-4 gap-4 cursor-pointer">
         {fields.map((f, i) => (
           <div key={i} className="bg-[#222]/80 rounded-xl p-4 flex flex-col items-center">
             <span className="text-sm font-medium">{f.name}</span>
             <span className="text-xs text-gray-400">{f.area}</span>
             <p className="text-xl font-bold mt-2">{f.current}</p>
-            <p className="text-xs">Current</p>
-            <p className="mt-1 text-sm">{f.potential} Potential</p>
-            <p className="text-xs">{f.eff}% Efficiency</p>
+            <p className="text-xs">Saat ini</p>
+            <p className="mt-1 text-sm">{f.potential} Potensial</p>
+            <p className="text-xs">{f.eff}% Efisiensi</p>
             <span
               className={`mt-2 px-2 py-1 text-xs rounded-full ${priorityColor[f.priority]}`}
             >

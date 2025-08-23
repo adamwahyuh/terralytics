@@ -13,15 +13,15 @@ export default function NavigasiMenu() {
   const [activeTab, setActiveTab] = useState("crop");
 
   const tabs = [
-    { key: "crop", label: "Crop Analysis" },
-    { key: "weather", label: "Weather" },
-    { key: "yield", label: "Yield Optimization" },
-    { key: "irrigation", label: "Smart Irrigation" },
+    { key: "crop", label: "Analisis Tanaman" },
+    { key: "weather", label: "Cuaca" },
+    { key: "yield", label: "Optimasi Hasil Panen" },
+    { key: "irrigation", label: "Irigasi Pintar" },
   ];
 
   return (
     <div className="w-full text-white">
-      {/* Navigation Tabs */}
+      {/* Navigasi Tab */}
       <div
         className={clsx(
           "flex gap-3 sm:gap-4 px-3 sm:px-6 py-2 sm:py-3 backdrop-blur-3xl",
@@ -46,7 +46,7 @@ export default function NavigasiMenu() {
         ))}
       </div>
 
-      {/* Render Section */}
+      {/* Render Bagian Konten */}
       <div className="">
         {activeTab === "crop" && <CropAnalysis />}
         {activeTab === "weather" && <Weather />}

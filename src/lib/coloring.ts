@@ -9,5 +9,6 @@ export const colorTheme = [
         textGreen: 'text-green-500 ',
         cardColorGreenGradient: 'bg-gradient-to-b from-green-700/40 to-yellow-500/30 ',
         hoverAnimationScale:' transition-transform duration-300 hover:scale-110 ',
+        hoverRingWhite : 'hover:ring-3 hover:ring-white/70 duration-300 ',
     }
 ];

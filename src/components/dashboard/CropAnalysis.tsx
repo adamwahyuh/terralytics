@@ -4,7 +4,12 @@ import LeftPanel from "./crop/LeftPanel";
 import HeatmapCard from "./crop/HeatMap";
 import HealthDistributionCard from "./crop/HealtDistributionCard";
 import CropAnalysisSection2 from "./crop/CropAnalysisSecrion2";
+import { CustomAnimation } from "@/lib/animation";
+
+
 export default function CropAnalysis() {
+  const anim = CustomAnimation[0];
+
   return (
     <section className="relative w-full">
      
@@ -24,7 +29,7 @@ export default function CropAnalysis() {
           </div>
 
           {/* center (6.5 / 12) */}
-          <div className="lg:col-span-6">
+          <div className={`lg:col-span-6 ${anim.fadeInUp} `}>
             <HeatmapCard />
           </div>
 
@@ -35,7 +40,7 @@ export default function CropAnalysis() {
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-10">
+      <div className="relative mx-auto max-w-7xl px-6 pb-10">
         <CropAnalysisSection2 />
       </div>
     </section>

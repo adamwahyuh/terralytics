@@ -11,17 +11,17 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Week 1", value: 40 },
-  { name: "Week 2", value: 30 },
-  { name: "Week 3", value: 20 },
-  { name: "Week 4", value: 27 },
+  { name: "Minggu 1", value: 40 },
+  { name: "Minggu 2", value: 30 },
+  { name: "Minggu 3", value: 20 },
+  { name: "Minggu 4", value: 27 },
 
 ];
 
 export default function ChartCard() {
   return (
     <div className="rounded-xl bg-[rgba(6,33,18,0.55)] ring-1 ring-white/10 backdrop-blur-md p-4 shadow-lg">
-      <h3 className="text-sm font-semibold mb-4">Key Indicators</h3>
+      <h3 className="text-sm font-semibold mb-4">Indikator</h3>
       <div className="h-48">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>

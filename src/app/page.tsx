@@ -1,6 +1,6 @@
 "use client";
 
-import { aboutCompany } from "@/lib/about";
+// import { aboutCompany } from "@/lib/about";
 import StepIndicator from "@/components/step/StepIndicator";
 import { useState, useEffect, useRef } from "react";
 
@@ -11,7 +11,7 @@ import AIFeaturesSection from "@/section/home/AiFeaturedSection";
 import SmartAgricultureSection from "@/section/home/SmartAgricultureSection";
 
 export default function Home() {
-  const company = aboutCompany[0];
+  // const company = aboutCompany[0];
 
   const [currentStep, setCurrentStep] = useState(1);
   const steps = ["Section 1", "Section 2", "Section 3", "Section 4"];

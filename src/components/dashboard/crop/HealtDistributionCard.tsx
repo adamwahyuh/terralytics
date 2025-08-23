@@ -1,4 +1,5 @@
 "use client";
+import { colorTheme } from "@/lib/coloring";
 import { TriangleAlert, Check } from "lucide-react";
 
 function Donut({ percent = 75 }: { percent?: number }) {
@@ -58,13 +59,14 @@ function Donut({ percent = 75 }: { percent?: number }) {
 }
 
 export default function HealthDistributionCard() {
+  const ct = colorTheme[0];
   return (
     <aside className="space-y-4">
       {/* Main Card */}
-      <div className="rounded-2xl bg-[rgba(6,33,18,0.55)]/80 ring-1 ring-white/10 backdrop-blur-md p-5 shadow-lg">
-        <h3 className="text-lg font-bold text-white">Health Distribution</h3>
+      <div className={`rounded-2xl bg-[rgba(6,33,18,0.55)]/80 ring-1 ring-white/10 backdrop-blur-md p-5 shadow-lg ${ct.hoverRingWhite + ct.cursorPointer}`}>
+        <h3 className="text-lg font-bold text-white">Distribusi Kesehatan</h3>
         <p className="text-sm text-emerald-200/70 mt-1">
-          Current field health composition
+          Komposisi kesehatan lahan sekarang
         </p>
 
         <div className="mt-4 flex items-center justify-center">
@@ -75,21 +77,21 @@ export default function HealthDistributionCard() {
           <li className="flex justify-between">
             <div className="flex items-center gap-2">
               <span className="inline-block h-3 w-3 rounded-full bg-emerald-400" />
-              Excellent
+              Sempurna
             </div>
             <span>75%</span>
           </li>
           <li className="flex justify-between">
             <div className="flex items-center gap-2">
               <span className="inline-block h-3 w-3 rounded-full bg-yellow-400" />
-              Fair
+              Sepadan
             </div>
             <span>20%</span>
           </li>
           <li className="flex justify-between">
             <div className="flex items-center gap-2">
               <span className="inline-block h-3 w-3 rounded-full bg-red-500" />
-              Poor
+              Buruk
             </div>
             <span>5%</span>
           </li>
@@ -97,7 +99,7 @@ export default function HealthDistributionCard() {
       </div>
 
       {/* Small Stat Pills */}
-      <div className="rounded-2xl bg-[rgba(6,33,18,0.55)]/80 ring-1 ring-white/10 backdrop-blur-md p-4 shadow-lg space-y-3">
+      <div className={`rounded-2xl bg-[rgba(6,33,18,0.55)]/80 ring-1 ring-white/10 backdrop-blur-md p-4 shadow-lg space-y-3 ${ct.hoverRingWhite+ct.cursorPointer}`}>
         {/* Healthy Areas */}
         <div className="flex items-center justify-between rounded-full bg-black/20 px-4 py-3">
           <div className="flex items-center gap-3 justify-center">
