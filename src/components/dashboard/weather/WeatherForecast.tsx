@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-
+import { colorTheme } from "@/lib/coloring";
 export default function WeatherForecast() {
   const data = [
     { day: "Sen", temp: 29 },
@@ -20,9 +20,10 @@ export default function WeatherForecast() {
     { day: "Min", temp: 30 },
   ];
 
+  const ct = colorTheme[0];
   return (
-    <div className="bg-black/50 rounded-2xl shadow-lg p-20 h-[50vh]">
-      <h2 className="text-lg font-semibold mb-4 text-white">7-Day Forecast</h2>
+    <div className={`bg-black/50 rounded-2xl shadow-lg p-15 h-[50vh] ${ct.hoverRingWhite}`}>
+      <h2 className="text-lg font-semibold mb-4 text-white">Prediksi Cuaca 1 Minggu</h2>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#444" />

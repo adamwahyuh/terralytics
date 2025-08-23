@@ -4,28 +4,28 @@ import {
 } from "recharts";
 
 const data = [
-  { month: "Jun", optimal: 5.5, actual: 4.8, predicted: 5.0 },
-  { month: "Jul", optimal: 6.0, actual: 5.2, predicted: 5.4 },
-  { month: "Aug", optimal: 6.5, actual: 5.6, predicted: 5.8 },
-  { month: "Sep", optimal: 7.0, actual: 6.0, predicted: 6.2 },
-  { month: "Oct", optimal: 7.3, actual: 6.3, predicted: 6.6 },
-  { month: "Nov", optimal: 7.5, actual: 6.5, predicted: 6.8 },
+  { bulan: "Jun", optimal: 5.5, aktual: 4.8, prediksi: 5.0 },
+  { bulan: "Jul", optimal: 6.0, aktual: 5.2, prediksi: 5.4 },
+  { bulan: "Agu", optimal: 6.5, aktual: 5.6, prediksi: 5.8 },
+  { bulan: "Sep", optimal: 7.0, aktual: 6.0, prediksi: 6.2 },
+  { bulan: "Okt", optimal: 7.3, aktual: 6.3, prediksi: 6.6 },
+  { bulan: "Nov", optimal: 7.5, aktual: 6.5, prediksi: 6.8 },
 ];
 
 export default function YieldTrends() {
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-2">Yield Performance Trends</h2>
+      <h2 className="text-lg font-semibold mb-2">Tren Kinerja Hasil</h2>
       <ResponsiveContainer width="100%" height={250}>
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-          <XAxis dataKey="month" stroke="#aaa" />
+          <XAxis dataKey="bulan" stroke="#aaa" />
           <YAxis stroke="#aaa" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="optimal" stroke="#22c55e" strokeWidth={2} />
-          <Line type="monotone" dataKey="actual" stroke="#38bdf8" strokeWidth={2} />
-          <Line type="monotone" dataKey="predicted" stroke="#facc15" strokeWidth={2} />
+          <Line type="monotone" dataKey="optimal" stroke="#22c55e" strokeWidth={2} name="Optimal" />
+          <Line type="monotone" dataKey="aktual" stroke="#38bdf8" strokeWidth={2} name="Aktual" />
+          <Line type="monotone" dataKey="prediksi" stroke="#facc15" strokeWidth={2} name="Prediksi" />
         </LineChart>
       </ResponsiveContainer>
     </div>

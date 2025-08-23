@@ -6,11 +6,13 @@ import HistoricalPerformance from "./HistoricalPerformance";
 import CropMetrics from "./CropMetrics";
 import OptimizationFactors from "./OptimizationFactors";
 import AIRecommendations from "./AIRecomendations";
+import { colorTheme } from "@/lib/coloring";
 
 export default function YieldDashboard() {
+  const ct = colorTheme[0];
   return (
     <div
-      className="relative flex flex-col min-h-screen -z-9 w-screen text-white p-6 gap-6 bg-cover"
+      className="relative flex flex-col min-h-screen -z-9 w-full text-white p-6 gap-6 bg-cover"
       style={{ backgroundImage: "url('/img/gunung.jpg')" }}
     >
       {/* Overlay */}
@@ -46,10 +48,10 @@ export default function YieldDashboard() {
 
         {/* Optimization + AI Recommendations */}
         <div className="flex flex-col md:flex-row gap-6 flex-wrap">
-          <div className="flex-1 bg-[#111]/70 rounded-2xl shadow-lg p-6 min-w-[280px]">
+          <div className={` ${ct.hoverRingWhite} flex-1 bg-[#111]/70 rounded-2xl shadow-lg p-6 min-w-[280px]`}>
             <OptimizationFactors />
           </div>
-          <div className="flex-1 bg-[#111]/70 rounded-2xl shadow-lg p-6 min-w-[280px]">
+          <div className={`${ct.hoverRingWhite} flex-1 bg-[#111]/70 rounded-2xl shadow-lg p-6 min-w-[280px]`}>
             <AIRecommendations />
           </div>
         </div>

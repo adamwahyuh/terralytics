@@ -13,7 +13,7 @@ const data = [
 export default function HistoricalPerformance() {
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-2">Historical Performance</h2>
+      <h2 className="text-lg font-semibold mb-2">Riwayat Performa</h2>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#333" />

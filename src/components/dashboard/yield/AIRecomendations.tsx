@@ -1,43 +1,46 @@
-type ImpactLevel = "High" | "Medium" | "Low";
+type ImpactLevel = "Tinggi" | "Sedang" | "Rendah";
 
 import { colorTheme } from "@/lib/coloring";
-import { col } from "framer-motion/client";
+
 const recs: { title: string; desc: string; impact: ImpactLevel }[] = [
   {
-    title: "Optimize Planting Density",
-    desc: "Increase corn planting density by 15% in Field A to maximize yield potential.",
-    impact: "High",
+    title: "Optimalkan Kepadatan Tanam",
+    desc: "Tingkatkan kepadatan tanam jagung sebesar 15% di Lahan A untuk memaksimalkan potensi hasil.",
+    impact: "Tinggi",
   },
   {
-    title: "Nitrogen Application Timing",
-    desc: "Apply nitrogen fertilizer in split doses during vegetative growth stages.",
-    impact: "Medium",
+    title: "Waktu Aplikasi Nitrogen",
+    desc: "Aplikasikan pupuk nitrogen secara bertahap selama fase pertumbuhan vegetatif.",
+    impact: "Sedang",
   },
   {
-    title: "Variety Selection",
-    desc: "Switch to drought-resistant rice variety for better performance.",
-    impact: "High",
+    title: "Pemilihan Varietas",
+    desc: "Beralih ke varietas padi tahan kekeringan untuk performa lebih baik.",
+    impact: "Tinggi",
   },
 ];
 
 const impactColor: Record<ImpactLevel, string> = {
-  High: "text-red-400",
-  Medium: "text-yellow-400",
-  Low: "text-green-400",
+  Tinggi: "text-red-400",
+  Sedang: "text-yellow-400",
+  Rendah: "text-green-400",
 };
 
 export default function AIRecommendations() {
-const color = colorTheme[0];
+  const color = colorTheme[0];
   return (
-    <div>
-      <h2 className="text-lg font-semibold mb-4">AI Recommendations</h2>
+    <div className={`${color.hoverRingWhite}`}>
+      <h2 className="text-lg font-semibold mb-4">Rekomendasi AI</h2>
       <div className="space-y-4">
         {recs.map((r, i) => (
-          <div key={i} className={`${color.hoverAnimationScale + color.cursorPointer} bg-[#222]/80 p-3 rounded-xl`}>
+          <div
+            key={i}
+            className={`${color.hoverRingWhite + color.cursorPointer} bg-[#222]/80 p-3 rounded-xl`}
+          >
             <p className="font-medium">{r.title}</p>
             <p className="text-xs text-gray-300">{r.desc}</p>
             <p className={`text-xs mt-1 ${impactColor[r.impact]}`}>
-              {r.impact} Impact
+              Dampak {r.impact}
             </p>
           </div>
         ))}

@@ -6,10 +6,10 @@ import WeatherForecast from "./WeatherForecast";
 
 export default function Weather() {
   return (
-    <div id="weather" className="relative flex flex-col md:flex-row min-h-screen w-screen text-white p-4 gap-4 pb-20">
+    <div id="weather" className="relative flex flex-col md:flex-row min-h-screen w-full text-white p-4 gap-4 pb-20">
       {/* Background + Overlay */}
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-center"
+        className="absolute inset-0 -z-10 bg-cover "
         style={{ backgroundImage: "url('/img/FWeather.png')" }}
       />
       <div className="absolute inset-0 -z-10 bg-[#042012]/70 backdrop-blur-sm" />

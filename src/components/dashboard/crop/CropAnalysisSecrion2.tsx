@@ -4,56 +4,58 @@ import IndicatorCard from "./IndicatorCard";
 import ActionItemCard from "./ActionItemCard";
 import ChartCard from "./ChartCard";
 import { Droplets, Bug, Leaf } from "lucide-react";
+import { colorTheme } from "@/lib/coloring";
 
 export default function CropAnalysisSection2() {
+  const ct = colorTheme[0];
   return (
     <section className="space-y-6 ">
-      {/* Indicators - full width */}
-      <div className="space-y-4">
+      {/* Indikator - full width */}
+      <div className={` space-y-4`}>
         <IndicatorCard
-          title="Water Stress"
-          subtitle="Optimal moisture levels"
+          title="Stres Air"
+          subtitle="Kadar kelembapan optimal"
           value={23}
           color="blue-400"
           icon={<Droplets size={18} />}
         />
         <IndicatorCard
-          title="Pest Infestation"
-          subtitle="Low pest activity"
+          title="Serangan Hama"
+          subtitle="Aktivitas hama rendah"
           value={12}
           color="green-400"
           icon={<Bug size={18} />}
         />
         <IndicatorCard
-          title="Nutrient Levels"
-          subtitle="Needs fertilization"
+          title="Kadar Nutrisi"
+          subtitle="Perlu pemupukan"
           value={78}
           color="amber-400"
           icon={<Leaf size={18} />}
         />
       </div>
 
-      {/* Chart + Actions - 2 cols */}
+      {/* Grafik + Tindakan - 2 kolom */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ChartCard />
 
         <div className="space-y-3">
           <ActionItemCard
-            title="Apply Nitrogen Fertilizer"
-            description="Corn fields showing nutrient deficiency"
-            actionText="Schedule fertilization for Field B-3"
+            title="Terapkan Pupuk Nitrogen"
+            description="Lahan jagung menunjukkan kekurangan nutrisi"
+            actionText="Jadwalkan pemupukan untuk Lahan B-3"
             severity="High"
           />
           <ActionItemCard
-            title="Monitor Tomato Fields"
-            description="Water stress detected in southern area"
-            actionText="Increase irrigation frequency"
+            title="Pantau Lahan Tomat"
+            description="Stres air terdeteksi di area selatan"
+            actionText="Tingkatkan frekuensi irigasi"
             severity="Medium"
           />
           <ActionItemCard
-            title="Apply Nitrogen Fertilizer"
-            description="Corn fields showing nutrient deficiency"
-            actionText="Schedule fertilization for Field B-3"
+            title="Terapkan Pupuk Nitrogen"
+            description="Lahan jagung menunjukkan kekurangan nutrisi"
+            actionText="Jadwalkan pemupukan untuk Lahan B-3"
             severity="Low"
           />
         </div>

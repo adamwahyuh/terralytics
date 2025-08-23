@@ -1,4 +1,5 @@
 "use client";
+import { colorTheme } from "@/lib/coloring";
 
 interface ActionItemCardProps {
   title: string;
@@ -20,8 +21,9 @@ export default function ActionItemCard({
       ? { bg: "bg-yellow-600/20", text: "text-yellow-400", badge: "bg-yellow-600" }
       : { bg: "bg-emerald-600/20", text: "text-emerald-400", badge: "bg-emerald-600" };
 
+  const ct= colorTheme[0];
   return (
-    <div className={`rounded-xl ${colors.bg} p-4 flex justify-between items-start`}>
+    <div className={`rounded-xl ${colors.bg} p-4 flex justify-between items-start ${ct.hoverRingWhite + ct.cursorPointer} `}>
       <div>
         <div className="font-semibold">{title}</div>
         <div className="text-sm text-gray-300/80">{description}</div>

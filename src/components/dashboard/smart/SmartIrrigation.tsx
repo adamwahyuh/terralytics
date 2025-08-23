@@ -1,4 +1,5 @@
 import React from "react";
+import { colorTheme } from "@/lib/coloring";
 import {
   LineChart,
   Line,
@@ -22,41 +23,42 @@ const irrigationData = [
 ];
 
 const weeklyUsage = [
-  { day: "Mon", actual: 400, optimal: 370 },
-  { day: "Tue", actual: 350, optimal: 360 },
-  { day: "Wed", actual: 380, optimal: 370 },
-  { day: "Thu", actual: 370, optimal: 360 },
-  { day: "Fri", actual: 360, optimal: 355 },
-  { day: "Sat", actual: 420, optimal: 400 },
-  { day: "Sun", actual: 450, optimal: 430 },
+  { day: "Sen", actual: 400, optimal: 370 },
+  { day: "Sel", actual: 350, optimal: 360 },
+  { day: "Rab", actual: 380, optimal: 370 },
+  { day: "Kam", actual: 370, optimal: 360 },
+  { day: "Jum", actual: 360, optimal: 355 },
+  { day: "Sab", actual: 420, optimal: 400 },
+  { day: "Min", actual: 450, optimal: 430 },
 ];
 
 const zones = [
-  { id: "A", status: "Active", crop: "Tomatoes", moisture: 78, next: "14:30" },
-  { id: "B", status: "Standby", crop: "Corn", moisture: 65, next: "16:00" },
-  { id: "C", status: "Active", crop: "Rice", moisture: 82, next: "15:15" },
-  { id: "D", status: "Maintenance", crop: "Wheat", moisture: 0, next: "Manual" },
+  { id: "A", status: "Aktif", crop: "Tomat", moisture: 78, next: "14:30" },
+  { id: "B", status: "Siaga", crop: "Jagung", moisture: 65, next: "16:00" },
+  { id: "C", status: "Aktif", crop: "Padi", moisture: 82, next: "15:15" },
+  { id: "D", status: "Perawatan", crop: "Gandum", moisture: 0, next: "Manual" },
 ];
 
 const recommendations = [
   {
-    title: "Optimize Zone B Schedule",
-    desc: "Delay irrigation by 2 hours based on soil moisture prediction",
+    title: "Optimalkan Jadwal Zona B",
+    desc: "Tunda irigasi selama 2 jam berdasarkan prediksi kelembaban tanah",
     impact: "-15%",
   },
   {
-    title: "Update Sensor Calibration",
-    desc: "Zone B sensors need recalibration for optimal readings",
+    title: "Perbarui Kalibrasi Sensor",
+    desc: "Sensor Zona B perlu dikalibrasi ulang agar pembacaan optimal",
     impact: "-8%",
   },
   {
-    title: "Weather-Based Adjustment",
-    desc: "Rain expected tomorrow, reduce irrigation by 20%",
+    title: "Penyesuaian Berdasarkan Cuaca",
+    desc: "Hujan diperkirakan besok, kurangi irigasi sebesar 20%",
     impact: "-12%",
   },
 ];
 
 export default function SmartIrrigation() {
+  const ct = colorTheme[0];
   return (
     <div className="relative flex flex-col gap-6 p-6 text-white overflow-hidden min-h-screen">
 
@@ -72,11 +74,11 @@ export default function SmartIrrigation() {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col gap-6">
         
-        {/* Top section */}
+        {/* Bagian Atas */}
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Real-time Irrigation Data */}
+          {/* Data Irigasi Real-time */}
           <div className="flex-1 bg-green-900/50 p-4 rounded-2xl">
-            <h2 className="text-lg font-semibold mb-2">Real-time Irrigation Data</h2>
+            <h2 className="text-lg font-semibold mb-2">Data Irigasi Real-time</h2>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={irrigationData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
@@ -84,56 +86,56 @@ export default function SmartIrrigation() {
                 <YAxis stroke="#fff" />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="soil" stroke="#00ff88" name="Soil Moisture" />
-                <Line type="monotone" dataKey="flow" stroke="#ffee33" name="Flow Rate" />
-                <Line type="monotone" dataKey="temp" stroke="#3399ff" name="Temperature" />
+                <Line type="monotone" dataKey="soil" stroke="#00ff88" name="Kelembaban Tanah" />
+                <Line type="monotone" dataKey="flow" stroke="#ffee33" name="Laju Aliran" />
+                <Line type="monotone" dataKey="temp" stroke="#3399ff" name="Suhu" />
               </LineChart>
             </ResponsiveContainer>
           </div>
 
-          {/* System Status */}
-          <div className="w-full lg:w-1/3 bg-green-900/50 p-4 rounded-2xl flex flex-col justify-between">
+          {/* Status Sistem */}
+          <div className={`w-full lg:w-1/3 bg-green-900/50 p-4 rounded-2xl flex flex-col justify-between ${ct.hoverRingWhite + ct.cursorPointer} `}>
             <div>
-              <h2 className="text-lg font-semibold mb-4">System Status</h2>
+              <h2 className="text-lg font-semibold mb-4">Status Sistem</h2>
               <p className="text-3xl font-bold">
-                1,847 <span className="text-sm">liters/day</span>
+                1.847 <span className="text-sm">liter/hari</span>
               </p>
-              <p className="text-green-400 text-lg">23% saved today</p>
+              <p className="text-green-400 text-lg">Hemat 23% hari ini</p>
             </div>
             <div className="mt-4">
-              <p>System Health: <span className="font-bold">94%</span></p>
-              <p>Coverage: <span className="font-bold">12/12 Zones</span></p>
+              <p>Kesehatan Sistem: <span className="font-bold">94%</span></p>
+              <p>Cakupan: <span className="font-bold">12/12 Zona</span></p>
             </div>
           </div>
         </div>
 
-        {/* Zones */}
+        {/* Zona */}
         <div className="flex flex-wrap gap-4">
           {zones.map((zone) => (
             <div
               key={zone.id}
-              className={`flex-1 min-w-[200px] p-4 rounded-2xl text-white ${
-                zone.status === "Active"
+              className={`flex-1 min-w-[200px] p-4 rounded-2xl text-white ${ct.hoverRingWhite + ct.cursorPointer} ${
+                zone.status === "Aktif"
                   ? "bg-green-700"
-                  : zone.status === "Standby"
+                  : zone.status === "Siaga"
                   ? "bg-yellow-600"
                   : "bg-red-700"
               }`}
             >
-              <h3 className="font-bold">Zone {zone.id}</h3>
+              <h3 className="font-bold">Zona {zone.id}</h3>
               <p>Status: {zone.status}</p>
-              <p>Crop: {zone.crop}</p>
-              <p>Moisture: {zone.moisture}%</p>
-              <p>Next: {zone.next}</p>
+              <p>Tanaman: {zone.crop}</p>
+              <p>Kelembaban: {zone.moisture}%</p>
+              <p>Berikutnya: {zone.next}</p>
             </div>
           ))}
         </div>
 
-        {/* Bottom Section */}
+        {/* Bagian Bawah */}
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Weekly Water Usage */}
+          {/* Pemakaian Air Mingguan */}
           <div className="flex-1 bg-green-900/50 p-4 rounded-2xl">
-            <h2 className="text-lg font-semibold mb-2">Weekly Water Usage</h2>
+            <h2 className="text-lg font-semibold mb-2">Pemakaian Air Mingguan</h2>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={weeklyUsage}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
@@ -141,24 +143,24 @@ export default function SmartIrrigation() {
                 <YAxis stroke="#fff" />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="actual" fill="#00ff88" name="Actual Usage" />
-                <Bar dataKey="optimal" fill="#ffee33" name="Optimal Usage" />
+                <Bar dataKey="actual" fill="#00ff88" name="Pemakaian Aktual" />
+                <Bar dataKey="optimal" fill="#ffee33" name="Pemakaian Optimal" />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          {/* AI Recommendations */}
+          {/* Rekomendasi AI */}
           <div className="w-full lg:w-1/3 bg-green-900/50 p-4 rounded-2xl">
-            <h2 className="text-lg font-semibold mb-4">AI Recommendations</h2>
+            <h2 className="text-lg font-semibold mb-4">Rekomendasi AI</h2>
             <div className="flex flex-col gap-4">
               {recommendations.map((rec, i) => (
-                <div key={i} className="p-3 rounded-xl bg-green-800/60">
+                <div key={i} className={`p-3 rounded-xl bg-green-800/60 ${ct.hoverRingWhite + ct.cursorPointer} `}>
                   <h3 className="font-bold text-base">{rec.title}</h3>
                   <p className="text-sm text-gray-300">{rec.desc}</p>
                   <div className="flex justify-between items-center mt-2">
                     <span className="text-green-400 font-bold">{rec.impact}</span>
                     <button className="bg-green-600 hover:bg-green-500 px-3 py-1 rounded-xl text-sm">
-                      Apply Schedule
+                      Terapkan Jadwal
                     </button>
                   </div>
                 </div>
