@@ -9,7 +9,7 @@ interface StepIndicatorProps {
 
 export default function StepIndicator({ steps, currentStep, onStepClick }: StepIndicatorProps) {
   return (
-    <div className="flex flex-col items-center relative">
+    <div className="flex-col items-center relative hidden md:flex">
       <div className="absolute top-5 bottom-5 w-[1px] md:w-[2px] bg-white z-1" />
       {steps.map((_, idx) => (
         <div key={idx} className="flex flex-col items-center">

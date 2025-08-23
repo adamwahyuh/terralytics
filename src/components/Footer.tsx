@@ -74,7 +74,7 @@ export default function Footer() {
               <h3 className="font-bold mb-2">Groups</h3>
               <ul className="space-y-1 text-gray-300">
                 <li><Link className={`${color.textHover}`} href="#">About Us</Link></li>
-                <li><Link className={`${color.textHover}`} href="#">Team</Link></li>
+                <li><Link className={`${color.textHover}`} href="/team">Team</Link></li>
               </ul>
             </div>
             <div>

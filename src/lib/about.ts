@@ -5,10 +5,9 @@ export type SocialMediaName = 'Facebook' | 'Twitter' | 'Instagram' | 'Youtube' |
 export const aboutCompany = [
   {   
     name: 'TerrAlytics', 
-    subtitle : 'Terralytics adalah platform berbasis AI yang membantu menganalisis dan melestarikan hutan Indonesia.',
+    subtitle : 'Transforming Agriculture with Artificial Intelligence & Big Data Analytics',
     email : 'hello@terralytics.test',
     socialLinks: [
-      { name: 'X', href: '#' },
       { name: 'Instagram', href: '#' },
       { name: 'Facebook', href: '#' },
       { name: 'Youtube', href: '#' },

@@ -2,6 +2,9 @@ import StatCard from "@/components/StatCard";
 import { Leaf, Droplet, Thermometer, CloudRain, Database } from "lucide-react";
 import { colorTheme } from "@/lib/coloring";
 import AIInsightsSection from "./AIInsightsSection";
+import Link from "next/link";
+
+
 export default function DashboardSection() {
 const color = colorTheme[0];
 
@@ -65,9 +68,12 @@ const color = colorTheme[0];
         </div>
 
         {/* Button */}
-        <button className={`mt-10 ${color.gradientGreenYellow + color.cursorPointer} text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:opacity-90 transition`}>
-          Explore Dashboard 
-        </button>
+        <Link
+          href="/dashboard"
+          className={`mt-10 ${color.gradientGreenYellow + color.cursorPointer} text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 ${color.hoverAnimationScale} transition`}
+        >
+          Explore Dashboard
+        </Link>
       </div>
 
       

@@ -14,7 +14,7 @@ export default function FAQ() {
         {/* Box FAQ */}
         <div className={` ${color.cardColorGreenGradient} backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-6 md:p-20`}>
         <div className="text-center mb-10 ">
-          <h1 className="text-5xl md:text-5xl font-extrabold text-white drop-shadow-lg">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg">
             Frequently Asked Questions
           </h1>
           <p className=" text-green-500 mt-3 max-w-2xl mx-auto">
