@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-
+import { colorTheme } from "@/lib/coloring";
 interface AIInsightCardProps {
   icon: ReactNode;
   title: string;
@@ -13,9 +13,10 @@ export default function AIInsightCard({
   description,
   bgColor = "bg-green-900/40",
 }: AIInsightCardProps) {
+  const color = colorTheme[0];
   return (
     <div
-      className={`${bgColor} rounded-2xl p-5 flex flex-col gap-2 min-h-[120px] w-full md:w-[300px]`}
+      className={`${bgColor} rounded-2xl p-5 flex flex-col gap-2 min-h-[120px] w-full md:w-[300px] ${color.cursorPointer + color.hoverRingWhite}`}
     >
       <div className="flex items-center gap-2">
         {icon}

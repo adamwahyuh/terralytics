@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Riple } from "react-loading-indicators";
 
 // Section
 import FirstSection from "@/section/dashboard/FirstSection";
@@ -77,7 +78,7 @@ export default function Home() {
 
         {/* Konten loading */}
         <div className="relative text-center">
-          <div className="animate-spin h-12 w-12 border-4 border-green-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <Riple color="#32cd32" size="medium" text="" textColor="" />
           <p className="text-lg font-semibold animate-pulse">
             {messages[messageIndex]}
           </p>

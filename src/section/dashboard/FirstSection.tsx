@@ -3,7 +3,6 @@ import StatusChip from "@/components/dashboard/StatusChip";
 import MetricCard from "@/components/dashboard/MetricCard";
 import HealthSummary from "@/components/dashboard/HealtSumary";
 import RiskCard from "@/components/dashboard/RiskCard";
-import { colorTheme } from "@/lib/coloring";
 import { CustomAnimation } from "@/lib/animation";
 
 export default function FirstSection() {
