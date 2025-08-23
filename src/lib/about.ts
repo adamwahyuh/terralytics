@@ -5,7 +5,7 @@ export type SocialMediaName = 'Facebook' | 'Twitter' | 'Instagram' | 'Youtube' |
 export const aboutCompany = [
   {   
     name: 'TerrAlytics', 
-    subtitle : 'Transforming Agriculture with Artificial Intelligence & Big Data Analytics',
+    subtitle : 'Mentransformasi Pertanian dengan Kecerdasan Buatan & Analisis Big Data',
     email : 'hello@terralytics.test',
     socialLinks: [
       { name: 'Instagram', href: '#' },

@@ -1,12 +1,9 @@
 import StatCard from "@/components/StatCard";
 import { Leaf, Droplet, Thermometer, CloudRain, Database } from "lucide-react";
-import { colorTheme } from "@/lib/coloring";
 import AIInsightsSection from "./AIInsightsSection";
-import Link from "next/link";
 
 
 export default function DashboardSection() {
-const color = colorTheme[0];
 
   return (
 
@@ -24,18 +21,17 @@ const color = colorTheme[0];
 
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold mb-2">
-          Live Farm Intelligence Dashboard
+          Pertanian Cerdas dengan AI
         </h2>
         <p className="text-sm md:text-base mb-10">
-          Monitor your farm's vital signs with AI-powered sensors and predictive
-          analytics
+          Pantau tanda-tanda vital pertanian Anda dengan sensor bertenaga AI dan analitik prediktif
         </p>
 
         {/* Cards */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6 pb-16">
           <StatCard
             icon={<Leaf size={20} />}
-            title="Crop Health Index"
+            title="Kesehatan Tanaman"
             value={88}
             unit="%"
             max={100}
@@ -43,7 +39,7 @@ const color = colorTheme[0];
           />
           <StatCard
             icon={<Droplet size={20} />}
-            title="Soil Moisture"
+            title="Kelembaban Tanah"
             value={74}
             unit="%"
             max={100}
@@ -51,7 +47,7 @@ const color = colorTheme[0];
           />
           <StatCard
             icon={<Thermometer size={20} />}
-            title="Temperature"
+            title="Temperatur"
             value={24}
             unit="°C"
             max={50}
@@ -59,7 +55,7 @@ const color = colorTheme[0];
           />
           <StatCard
             icon={<CloudRain size={20} />}
-            title="Humidity"
+            title="Kelembaban"
             value={84}
             unit="%"
             max={100}
@@ -67,13 +63,13 @@ const color = colorTheme[0];
           />
         </div>
 
-        {/* Button */}
+        {/* Button
         <Link
           href="/dashboard"
           className={`mt-10 ${color.gradientGreenYellow + color.cursorPointer} text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 ${color.hoverAnimationScale} transition`}
         >
           Explore Dashboard
-        </Link>
+        </Link> */}
       </div>
 
       

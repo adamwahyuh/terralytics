@@ -51,7 +51,7 @@ export default function MetricCard({
           <span className="grid h-6 w-6 place-items-center rounded-md bg-emerald-700/60">
             {ICONS[icon]}
           </span>
-          <span className="text-[13px] font-semibold text-emerald-100">
+          <span className="text-xs font-light text-emerald-100">
             {title}
           </span>
         </div>

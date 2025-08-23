@@ -77,21 +77,24 @@ export default function SmartIrrigation() {
         {/* Bagian Atas */}
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Data Irigasi Real-time */}
-          <div className="flex-1 bg-green-900/50 p-4 rounded-2xl">
+          <div className="flex-1 bg-green-900/50 p-4 rounded-2xl w-full">
             <h2 className="text-lg font-semibold mb-2">Data Irigasi Real-time</h2>
-            <ResponsiveContainer width="100%" height={250}>
-              <LineChart data={irrigationData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
-                <XAxis dataKey="time" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="soil" stroke="#00ff88" name="Kelembaban Tanah" />
-                <Line type="monotone" dataKey="flow" stroke="#ffee33" name="Laju Aliran" />
-                <Line type="monotone" dataKey="temp" stroke="#3399ff" name="Suhu" />
-              </LineChart>
-            </ResponsiveContainer>
+            <div className="w-full h-64 md:h-80 lg:h-96">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={irrigationData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
+                  <XAxis dataKey="time" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', borderRadius: '8px', color: '#fff' }} />
+                  <Legend wrapperStyle={{ color: '#fff' }} />
+                  <Line type="monotone" dataKey="soil" stroke="#00ff88" name="Kelembaban Tanah" />
+                  <Line type="monotone" dataKey="flow" stroke="#ffee33" name="Laju Aliran" />
+                  <Line type="monotone" dataKey="temp" stroke="#3399ff" name="Suhu" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
+
 
           {/* Status Sistem */}
           <div className={`w-full lg:w-1/3 bg-green-900/50 p-4 rounded-2xl flex flex-col justify-between ${ct.hoverRingWhite + ct.cursorPointer} `}>
