@@ -28,7 +28,7 @@ export default function ChatPage() {
 
   return (
     <div
-      className="min-h-screen text-white relative overflow-hidden bg-teal-500/80"
+      className="min-h-screen text-white relative overflow-hidden bg-gradient-to-br from-green-900 via-gray-900 to-green-900"
   
     >
       {/* Overlay transparan */}
