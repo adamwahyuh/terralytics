@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                 <h3 className="text-white font-semibold mb-1">Email</h3>
-                <p className="text-green-100">support@terralytics.ai</p>
+                <p className="text-green-100">orang@terralytics.utpas.id</p>
                 </div>
             </div>
             </div>

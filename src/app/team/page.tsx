@@ -40,7 +40,7 @@ const members: Member[] = [
     image: "/img/pp/desta-pp.jpg",
     socials: {
       instagram: "https://www.instagram.com/destaandry/",
-      email: "mailto:...",
+      email: "mailto:destaandrianto34@gmail.com",
     },
   },
 ];
