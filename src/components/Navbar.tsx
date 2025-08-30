@@ -38,21 +38,19 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // kalau buka notif, menu ketutup
+  // auto close
   useEffect(() => {
     if (notifOpen) setMenuOpen(false);
   }, [notifOpen]);
 
-  // kalau buka menu, notif ketutup
   useEffect(() => {
     if (menuOpen) setNotifOpen(false);
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 backdrop-blur-md bg-${color.navColor} text-white ` }
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header className={`fixed top-0 w-full z-50 text-white bg-${color.navColor} backdrop-blur-2xl sm:backdrop-blur-none sm:bg-transparent`}>
+      <div className="max-w-full px-6 py-4 flex justify-between items-center 
+         ">
         {/* Logo */}
         <Link
           href="/"
@@ -61,30 +59,32 @@ export default function Navbar() {
           <img
             src={company.logo}
             alt="Logo"
-            className="w-6 h-6 cursor-pointer transition"
+            className="w-7 h-7 cursor-pointer transition hover:scale-110"
           />
           <span className="text-xl font-bold">{company.name}</span>
         </Link>
 
         {/* Menu Desktop */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium relative">
-          {navLinks.map((link) => {
+        <nav className="hidden md:flex items-center space-x-6 text-sm rounded-full px-10 py-3 font-medium relative bg-black/40 backdrop-blur-md shadow-inner">
+          {navLinks.map((link: any) => {
             const isActive = pathname === link.href;
             return (
-              <div
-                key={link.name}
-                className="relative flex flex-col items-center"
-              >
+              <div key={link.name} className="relative">
                 <Link
                   href={link.href}
-                  className={`${color.textHover} transition pb-1`}
+                  className={`relative z-10 px-5 py-3 rounded-full transition font-medium
+                    ${isActive 
+                      ? "text-black" 
+                      : "text-white hover:text-gray-200 hover:bg-white/10 hover:scale-105"
+                    }`}
                 >
                   {link.name}
                 </Link>
+
                 {isActive && (
                   <motion.div
-                    layoutId="underline"
-                    className={`${color.gradientGreenYellow} absolute -bottom-[2px] h-[2px] w-full  rounded-full`}
+                    layoutId="activeBackground"
+                    className="absolute -inset-1 rounded-full bg-white shadow-md"
                     transition={{
                       type: "spring",
                       stiffness: 500,
@@ -102,7 +102,7 @@ export default function Navbar() {
           {/* Bell dengan dropdown notif */}
           <div className="relative" ref={notifRefDesktop}>
             <Bell
-              className={`w-5 h-5 ${color.cursorPointer} ${color.textHover} transition`}
+              className={`w-5 h-5 ${color.cursorPointer} ${color.textHover} transition hover:scale-110`}
               onClick={() => setNotifOpen((prev) => !prev)}
             />
             <AnimatePresence>
@@ -113,7 +113,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -5 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-green-900 backdrop-blur-lg absolute right-0 mt-2 w-72 text-white rounded-xl shadow-lg border border-green-900 z-50"
+                  className="bg-black/80 backdrop-blur-lg absolute right-0 mt-3 w-72 text-white rounded-xl shadow-2xl border border-white/10 z-50 p-3"
                 >
                   <Notif />
                 </motion.div>
@@ -123,17 +123,16 @@ export default function Navbar() {
 
           {/* User + Get Started */}
           <User
-            className={`w-5 h-5 ${color.cursorPointer} ${color.textHover} transition`}
+            className={`w-5 h-5 ${color.cursorPointer} ${color.textHover} transition hover:scale-110`}
           />
           <Link
             href="/get-started"
-            className={`bg-[var(--primary-color)] ${color.textHover} ${color.cursorPointer} text-white px-4 py-2 rounded-full text-sm font-semibold transition`}
+            className="bg-gradient-to-r from-green-400 to-yellow-300 text-black px-5 py-2 rounded-full text-sm font-semibold transition hover:scale-105 shadow-md"
           >
             Get Started
           </Link>
         </div>
 
-        {/* Hamburger + Bell di Mobile */}
         <div className="flex items-center space-x-4 md:hidden relative">
           {/* Bell mobile */}
           <div className="relative" ref={notifRefMobile}>
@@ -148,7 +147,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-green-900 backdrop-blur-lg absolute right-0 mt-2 w-72 text-white rounded-xl shadow-lg border border-green-900 z-50"
+                  className={`backdrop-blur-lg bg-green-900 absolute right-0 mt-2 w-72 text-white rounded-xl shadow-xl border border-white/10 z-50 p-3`}
                 >
                   <Notif />
                 </motion.div>
@@ -175,10 +174,11 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-[var(--primary-color)] px-6 py-4 space-y-4"
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25 }}
+            className={`md:hidden bg-${color.navColor} backdrop-blur-sm px-6 py-6 space-y-4 shadow-2xl rounded-b-2xl`}
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -187,27 +187,18 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`block ${color.textHover} transition relative pb-1`}
+                  className={`block relative px-2 py-2 rounded-md transition
+                    ${isActive ? "text-yellow-300 font-semibold" : "text-white hover:text-gray-200"}
+                  `}
                 >
                   {link.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="underline-mobile"
-                      className="absolute -bottom-[2px] h-[2px] w-full bg-white rounded-full"
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
-                    />
-                  )}
                 </Link>
               );
             })}
-            <div className="flex items-center space-x-4 pt-4 border-t border-white/20">
+            <div className="flex items-center space-x-4 pt-4 border-t border-white/10">
               <Link
                 href="/get-started"
-                className="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold transition"
+                className="bg-gradient-to-r from-green-400 to-yellow-300 text-black px-5 py-2 rounded-full text-sm font-semibold transition hover:scale-105 shadow-md"
               >
                 Get Started
               </Link>
