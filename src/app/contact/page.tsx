@@ -67,7 +67,7 @@ export default function ContactPage() {
               style={{ animationDelay: "0.2s", animationFillMode: "both" }}
             >
               <Image
-                src="/img/weirdSawah.png"
+                src="/img/contact-sigma.jpg"
                 alt="Contact Person"
                 width={600}
                 height={400}

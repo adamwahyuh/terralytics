@@ -9,21 +9,22 @@ type FAQItem = {
 
 const faqData: FAQItem[] = [
   {
-    question: "What is a Smart Irrigation System?",
+    question: "Apa itu Sistem Irigasi Pintar?",
     answer:
-      "An automatic, sensor-based irrigation system that regulates water flow according to soil moisture and weather conditions.",
+      "Sistem irigasi otomatis berbasis sensor yang mengatur aliran air sesuai dengan kelembaban tanah dan kondisi cuaca.",
   },
   {
-    question: "How does the AI prediction work in this system?",
+    question: "Bagaimana cara kerja prediksi AI dalam sistem ini?",
     answer:
-      "The AI analyzes soil data, weather, and historical patterns to predict the crop's water needs.",
+      "AI menganalisis data tanah, cuaca, dan pola historis untuk memprediksi kebutuhan air tanaman.",
   },
   {
-    question: "Can it be used on a small scale?",
+    question: "Apakah bisa digunakan dalam skala kecil?",
     answer:
-      "Yes, this system can be installed on scales ranging from small plots to large agricultural fields.",
+      "Ya, sistem ini dapat dipasang mulai dari lahan kecil hingga area pertanian yang luas.",
   },
 ];
+
 
 export default function FaqBox() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

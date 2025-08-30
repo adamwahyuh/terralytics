@@ -44,7 +44,7 @@ export default function About() {
         style={{ backgroundImage: "url('/img/gunung.jpg')" }}
       />
       {/* Overlay Blur */}
-      <div className="absolute inset-0 bg-green-900/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
       {/* Content */}
       <div className="relative container mx-auto px-4 py-32">
@@ -72,7 +72,7 @@ export default function About() {
               <div className="relative rounded-xl overflow-hidden">
                 {/* Gambar Background */}
                 <Image
-                  src="/img/gunung.jpg"
+                  src="/img/about-us-sigma.jpg"
                   alt="Pemandangan Pertanian"
                   width={800}
                   height={450}
