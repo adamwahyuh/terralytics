@@ -47,6 +47,10 @@ export default function Navbar() {
     if (menuOpen) setNotifOpen(false);
   }, [menuOpen]);
 
+
+  const hideMenu = pathname.startsWith("/dashboard");
+
+
   return (
     <header className={`fixed top-0 w-full z-50 text-white bg-${color.navColor} backdrop-blur-2xl sm:backdrop-blur-none sm:bg-transparent`}>
       <div className="max-w-full px-6 py-4 flex justify-between items-center 
@@ -101,7 +105,7 @@ export default function Navbar() {
         {/* Icons Desktop */}
         <div className="hidden md:flex items-center space-x-4 relative">
           {/* Bell dengan dropdown notif */}
-          <div className="relative" ref={notifRefDesktop}>
+          {hideMenu && <div className="relative" ref={notifRefDesktop}>
             <Bell
               className={`w-5 h-5 ${color.cursorPointer} ${color.textHover} transition hover:scale-110`}
               onClick={() => setNotifOpen((prev) => !prev)}
@@ -120,7 +124,7 @@ export default function Navbar() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </div>}
 
           {/* User + Get Started */}
           <User
@@ -136,7 +140,7 @@ export default function Navbar() {
 
         <div className="flex items-center space-x-4 md:hidden relative">
           {/* Bell mobile */}
-          <div className="relative" ref={notifRefMobile}>
+          {hideMenu && <div className="relative" ref={notifRefMobile}>
             <Bell
               className={`w-6 h-6 ${color.cursorPointer} ${color.textHover} transition`}
               onClick={() => setNotifOpen((prev) => !prev)}
@@ -154,7 +158,7 @@ export default function Navbar() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </div>}
 
           {/* Hamburger */}
           <button

@@ -61,6 +61,7 @@ export default function Footer() {
               <ul className="space-y-1 text-gray-300">
                 <li><Link className={`${color.textHover}`} href="/dashboard">AI Dashboard</Link></li>
                 <li><Link className={`${color.textHover}`} href="/dashboard/chat">AI Chat</Link></li>
+                <li><Link className={`${color.textHover}`} href="/credit">Credits</Link></li>
                 <li><Link className={`${color.textHover}`} href="/saya-admin-paling-ganteng">404</Link></li>
               </ul>
             </div>
