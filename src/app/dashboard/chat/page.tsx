@@ -5,6 +5,7 @@ import ChatSidebar from "@/components/chat/ChatSidebar";
 import ChatContent from "@/components/chat/submenu/ChatContent";
 import { VoiceContent } from "@/components/chat/submenu/VoiceContent";
 import { ImageContent } from "@/components/chat/submenu/ImageContent";
+import { motion } from "framer-motion";
 
 export default function ChatPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -12,8 +13,6 @@ export default function ChatPage() {
 
   const renderContent = () => {
     switch (activeContent) {
-      case "search":
-        return <ChatContent />;
       case "chat":
         return <ChatContent />;
       case "voice":
@@ -29,8 +28,8 @@ export default function ChatPage() {
 
   return (
     <div
-      className="min-h-screen text-white relative overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: "url('/img/gunung.jpg')" }}
+      className="min-h-screen text-white relative overflow-hidden bg-teal-500/80"
+  
     >
       {/* Overlay transparan */}
       <div className="absolute inset-0 bg-black/60 z-0" />
@@ -45,10 +44,17 @@ export default function ChatPage() {
 
       {/* Main Content */}
       <div className="md:ml-64 min-h-screen relative z-10">
-        {/* Dynamic Content */}
-        <div className="mt-20">
+        {/* Dynamic Content dengan fade-up */}
+        <motion.div
+          key={activeContent} // key biar Framer Motion trigger animasi setiap content berubah
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="mt-20"
+        >
           {renderContent()}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

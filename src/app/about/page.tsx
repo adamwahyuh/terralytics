@@ -72,7 +72,7 @@ export default function About() {
               <div className="relative rounded-xl overflow-hidden">
                 {/* Gambar Background */}
                 <Image
-                  src="/img/gunung.jpg"
+                  src="/img/about-us-sigma.jpg"
                   alt="Pemandangan Pertanian"
                   width={800}
                   height={450}

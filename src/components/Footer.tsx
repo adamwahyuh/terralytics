@@ -57,25 +57,23 @@ export default function Footer() {
           {/* Links Section */}
           <div className="flex flex-wrap md:space-x-16 gap-x-10 gap-y-6 text-sm">
             <div>
-              <h3 className="font-bold mb-2">Products</h3>
+              <h3 className="font-bold mb-2">Halaman</h3>
               <ul className="space-y-1 text-gray-300">
                 <li><Link className={`${color.textHover}`} href="/dashboard">AI Dashboard</Link></li>
-                <li><Link className={`${color.textHover}`} href="#">Harvest Prediction</Link></li>
-                <li><Link className={`${color.textHover}`} href="#">AI Consultation</Link></li>
-                <li><Link className={`${color.textHover}`} href="/dashboard">Weather Prediction</Link></li>
+                <li><Link className={`${color.textHover}`} href="/saya-admin-paling-ganteng">404</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold mb-2">Groups</h3>
               <ul className="space-y-1 text-gray-300">
-                <li><Link className={`${color.textHover}`} href="#">About Us</Link></li>
+                <li><Link className={`${color.textHover}`} href="/about">About Us</Link></li>
                 <li><Link className={`${color.textHover}`} href="/team">Team</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold mb-2">Support</h3>
               <ul className="space-y-1 text-gray-300">
-                <li><Link className={`${color.textHover}`} href="">Contact</Link></li>
+                <li><Link className={`${color.textHover}`} href="/contact">Contact</Link></li>
                 <li><Link className={`${color.textHover}`} href="/faq">FAQ</Link></li>
               </ul>
             </div>

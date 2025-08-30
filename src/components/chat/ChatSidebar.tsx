@@ -1,15 +1,17 @@
 'use client'
 
 import { 
+  LayoutDashboard,
   Search, 
   MessageCircle, 
   Mic, 
   Image, 
   History,
   X,
-  Menu
+  Menu,
+  Sidebar
 } from "lucide-react";
-
+import Link from "next/link";
 interface SidebarProps {
   isOpen: boolean;
   onToggle: () => void;
@@ -21,11 +23,10 @@ import { colorTheme } from "@/lib/coloring";
 
 export default function ChatSidebar({ isOpen, onToggle, activeItem = "chat", onItemClick }: SidebarProps) {
   const sidebarItems = [
-    { icon: Search, label: "Search", id: "search" },
     { icon: MessageCircle, label: "Chat", id: "chat" },
     { icon: Mic, label: "Voice", id: "voice" },
     { icon: Image, label: "Image", id: "image" },
-    { icon: History, label: "History", id: "history" },
+    // { icon: History, label: "History", id: "history" },
   ];
 const ct = colorTheme[0];
   return (
@@ -35,7 +36,7 @@ const ct = colorTheme[0];
         onClick={onToggle}
         className="md:hidden fixed top-20 left-4 z-50 p-2 bg-gray-800/80 rounded-lg backdrop-blur-sm"
       >
-        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        {isOpen ? <X className="w-5 h-5" /> : <Sidebar className="w-5 h-5" />}
       </button>
 
       {/* Sidebar */}
@@ -61,7 +62,20 @@ const ct = colorTheme[0];
               </div>
             );
           })}
+          <Link
+              href="/dashboard"
+              onClick={() => onItemClick("dashboard")}
+              className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-200 cursor-pointer ${
+                activeItem.toLowerCase() === "dashboard"
+                  ? "bg-green-500/20 text-green-400 border border-green-500/30 shadow-md shadow-green-500/10"
+                  : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+              }`}
+            >
+              <LayoutDashboard className="w-5 h-5" />
+              <span className="font-medium">Dashboard</span>
+            </Link>
         </div>
+
 
         {/* Bottom Profile Section */}
         <div className="p-6">

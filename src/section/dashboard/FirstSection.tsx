@@ -1,4 +1,4 @@
-import { ShieldCheck, Network, MessageSquare, Send } from "lucide-react";
+import { ShieldCheck, Network, MessageSquare, Send, Plus } from "lucide-react";
 import StatusChip from "@/components/dashboard/StatusChip";
 import MetricCard from "@/components/dashboard/MetricCard";
 import HealthSummary from "@/components/dashboard/HealtSumary";
@@ -133,19 +133,19 @@ export default function FirstSection() {
 
 
         <section
-          className={`mt-10 ${anim.fadeInUp} flex justify-center`}
+          className={`mt-10 ${anim.fadeInUp} flex justify-center px-4`}
           style={{ animationDelay: "1.1s" }}
         >
-            <Link
-              href="/dashboard/chat"
-              className=" inline-flex items-center w-1/3 gap-2 px-6 py-3 rounded-full bg-emerald-500 text-white font-medium hover:bg-emerald-600 transition shadow-md"
-            >
-              <div className="flex gap-4 items-center justify-between w-full">
-              <MessageSquare className="w-4 h-4" />
-              Tanya Segalanya
-              <Send />
-              </div>
-            </Link>
+          <Link
+            href="/dashboard/chat"
+            className="inline-flex items-center gap-2 w-full sm:w-2/3 md:w-1/3 px-6 bg-black/20 py-5 rounded-full border-white border-1 text-white font-medium hover:border-emerald-600 transition shadow-md"
+          >
+            <div className="flex gap-4 items-center justify-between w-full">
+              <Plus className="w-5 h-5 shrink-0" />
+              <span className="flex-1 text-center text-sm">Chat AI</span>
+              <Send className="w-5 h-5 shrink-0" />
+            </div>
+          </Link>
         </section>
         </div>
 

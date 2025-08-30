@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, User, Menu, X } from "lucide-react";
+import { Bell, User, Menu, X, Brain } from "lucide-react";
 import Link from "next/link";
 import { navLinks } from "@/lib/links";
 import { aboutCompany } from "@/lib/about";
@@ -56,11 +56,12 @@ export default function Navbar() {
           href="/"
           className={`flex items-center gap-2 text-white ${color.textHover} transition`}
         >
-          <img
+          {/* <img
             src={company.logo}
             alt="Logo"
             className="w-7 h-7 cursor-pointer transition hover:scale-110"
-          />
+          /> */}
+          <Brain className="w-7 h-7 cursor-pointer transition hover:scale-110" />
           <span className="text-xl font-bold">{company.name}</span>
         </Link>
 
