@@ -50,7 +50,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 backdrop-blur-md bg-${color.navColor} text-white`}
+      className={`fixed top-0 w-full z-50 backdrop-blur-md bg-${color.navColor} text-white ` }
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
