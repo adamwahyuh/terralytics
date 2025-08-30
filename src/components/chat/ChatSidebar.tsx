@@ -84,7 +84,7 @@ const ct = colorTheme[0];
               <span className="text-white text-sm font-bold">D</span>
             </div>
             <div className="flex-1">
-              <p className="text-sm font-medium text-white">Destaanacry</p>
+              <p className="text-sm font-medium text-white">Destaandry</p>
               <p className="text-xs text-gray-400">TerraPlus</p>
             </div>
             <div className="w-2 h-2 rounded-full bg-green-400"></div>
