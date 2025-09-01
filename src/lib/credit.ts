@@ -42,7 +42,7 @@ export const creditData: CreditItem[] = [
     id: 1,
     title: "Developer Team",
     description:
-      "Tim pengembang yang telah berkontribusi dalam pembuatan aplikasi untuk lomba Web Desain CORINDO 2025 ",
+      "Tim pengembang yang telah berkontribusi dalam pembuatan aplikasi untuk lomba Web Desain CORISINDO 2025 ",
     imageUrl: "/img/utpas-biru.png",
     linkUrl: "/team",
     linkText: "Lihat Team",
