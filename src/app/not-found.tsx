@@ -3,6 +3,7 @@ import PixelTree from "@/components/pixel/PixelTree";
 import PixelGround from "@/components/pixel/PixelGround";
 import PixelSun from "@/components/pixel/PixelSun";
 import PixelCloud from "@/components/pixel/PixelCloud";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -43,12 +44,12 @@ export default function NotFound() {
         <p className="text-gray-600 mb-6">
           Ups! Halaman yang kamu cari tidak tersedia.
         </p>
-        <a
+        <Link
           href="/"
           className="px-6 py-3 bg-gradient-to-r from-green-500 to-yellow-400 text-white rounded-full shadow-lg hover:scale-105 transition"
         >
           Kembali ke Beranda
-        </a>
+        </Link>
       </div>
     </div>
   );
