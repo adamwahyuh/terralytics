@@ -1,14 +1,15 @@
 "use client";
 
-import { Bell, User, Menu, X, Brain } from "lucide-react";
+import { Bell, User, Menu, X, } from "lucide-react";
 import Link from "next/link";
-import { navLinks } from "@/lib/links";
+import { NavLink, navLinks } from "@/lib/links";
 import { aboutCompany } from "@/lib/about";
 import { colorTheme } from "@/lib/coloring";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Notif from "./Notif";
+import Img from "next/image";
 
 export default function Navbar() {
   const company = aboutCompany[0];
@@ -60,18 +61,20 @@ export default function Navbar() {
           href="/"
           className={`flex items-center gap-2 text-white ${color.textHover} transition`}
         >
-          {/* <img
+          <Img
             src={company.logo}
+            width={35}
+            height={35}
             alt="Logo"
-            className="w-7 h-7 cursor-pointer transition hover:scale-110"
-          /> */}
-          <Brain className="w-7 h-7 cursor-pointer transition hover:scale-110" />
+            className="cursor-pointer transition hover:scale-110"
+          />
+          {/* <Brain className="w-7 h-7 cursor-pointer transition hover:scale-110" /> */}
           <span className="text-xl font-bold">{company.name}</span>
         </Link>
 
         {/* Menu Desktop */}
         <nav className="hidden md:flex items-center space-x-6 text-sm rounded-full px-10 py-3 font-medium relative bg-black/40 backdrop-blur-md shadow-inner">
-          {navLinks.map((link: any) => {
+          {navLinks.map((link: NavLink) => {
             const isActive = pathname === link.href;
             return (
               <div key={link.name} className="relative">
