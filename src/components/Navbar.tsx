@@ -63,8 +63,8 @@ export default function Navbar() {
         >
           <Img
             src={company.logo}
-            width={35}
-            height={35}
+            width={30}
+            height={30}
             alt="Logo"
             className="cursor-pointer transition hover:scale-110"
           />
